@@ -1,0 +1,9 @@
+<!-- <div [style.width]="innerWidth" class="count" style="color: #ffffff; text-align: center;font-weight: 500;">
+   
+</div> -->
+<div [style.width]="innerWidth" style=" color: #ffffff; text-align: center;font-weight: 500;padding-top: 10px;">
+    <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center">
+        <mat-icon style="margin-right: 3px;">watch_later</mat-icon>
+        Esta ventana se cerrará en {{timer$ | async}} segundos
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div [style.visibility]="isLoading? 'hidden': 'visible'" style="margin:0!important;" fxLayout="row wrap"
+  fxLayoutGap="21px grid" fxLayoutAlign="center center">
+
+
+
+
+
+  <!-- DISPOSITIVOS USADOS  ESTILOS EN STYLE.CSS-->
+  <div fxFlex.lg="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="65%" fxFlex.xl="30%">
+    <mat-card class="border-green">
+
+      <h2 style="padding-bottom: 25px;" class="titulo_tarjetas">Navegadores usados</h2>
+      <div class="list-group">
+
+        <div *ngFor="let item of devices" href="#" class="list-group-item list-group-item-action border-top-0">
+          <li class="media">
+            <div class="conte_icono_list" *ngIf="getIcon(item.browser_name)">
+              <img [src]="'assets/images/iconos/'+getIcon(item.browser_name)" alt="">
+            </div>
+            <div class="media-body">
+              <div class="media-item">{{item.browser_name}}<br>{{item.user_ip}}</div>
+            </div>
+            <div class="media-items">
+              <div class="media-title " style="text-align: end;">{{item.auth_time | date:'d MMMM y'}} <br>
+                {{item.auth_time | date:'HH:mm a'}}</div>
+            </div>
+          </li>
+        </div>
+
+        <!-- <a href="#" class="list-group-item list-group-item-action border-top-0">
+            <li class="media">
+              <div class="conte_icono_list"><img src="assets/images/iconos/apple-brands.svg" alt=""></div>
+              <div class="media-body">
+                <div class="media-item">Chrome<br>148.102.115.29</div>
+              </div>
+              <div class="media-items">
+                <div class="media-title " style="text-align: end;">26 de octubre del 2019 <br> 12:01 a. m</div>
+              </div>
+            </li>
+          </a>
+
+          <a href="#" class="list-group-item list-group-item-action border-top-0">
+            <li class="media">
+              <div class="conte_icono_list"><img src="assets/images/iconos/windows-brands.svg" alt=""></div>
+              <div class="media-body">
+                <div class="media-item">Chrome<br>148.102.115.29</div>
+              </div>
+              <div class="media-items">
+                <div class="media-title " style="text-align: end;">26 de octubre del 2019 <br> 12:01 a. m</div>
+              </div>
+            </li>
+          </a> -->
+
+      </div>
+    </mat-card>
+  </div>
+
+
+</div>

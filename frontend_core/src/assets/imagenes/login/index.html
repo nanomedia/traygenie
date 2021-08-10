@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<title>ID Gob.pe</title>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link href="css/icheck-material.min.css" rel="stylesheet" type="text/css">
+	<script
+  src="http://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<header class="header">
+		<div class="container flex-row d-flex align-items-start justify-content-between">
+			<img class="img-fluid centrar_logo" src="imagenes/logo.svg" width="200" height="auto" alt="">
+         </div>
+	</header>
+	<div class="container">
+		<h1>ID Gob.pe</h1>
+		<form method="post" id="form" class="formulario_rp">
+			<h2>Prompt</h2>
+			<div class="row contenido">
+				<div class="col-lg-2 col-md-4">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="prompt_none"/>
+             			<label for="prompt_none">none</label>
+        			</div>
+				</div>
+				
+				<div class="col-lg-2 col-md-4">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="prompt_login"/>
+             			<label for="prompt_login">login</label>
+        			</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="prompt_consent"/>
+             			<label for="prompt_consent">consent</label>
+        			</div>
+				</div>
+			</div>
+			<h2>Scopes</h2>
+			<div class="row contenido">
+				<div class="col-lg-2">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="scope_profile"/>
+             			<label for="scope_profile">profile</label>
+        			</div>
+				</div>
+			</div>
+			<h2>Acr</h2>
+			<div class="row contenido">
+				<div class="col-lg-4 col-sm-6">
+					<div class="icheck-material-red">
+						  <input type="radio" id="pki_dnie" name="acr_value" />
+						  <label for="pki_dnie">pki_dnie</label>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="icheck-material-red">
+						  <input type="radio" id="pki_dnie_mobile" name="acr_value" />
+						  <label for="pki_dnie_mobile">pki_dnie_mobile</label>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="icheck-material-red">
+						  <input type="radio" id="pki_token" name="acr_value" />
+						  <label for="pki_token">pki_token</label>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="icheck-material-red">
+						  <input type="radio" id="pki_dnie_legacy" name="acr_value" />
+						  <label for="pki_dnie_legacy">pki_dnie_legacy</label>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="icheck-material-red">
+						  <input type="radio" id="pki_token_legacy" name="acr_value" />
+						  <label for="pki_token_legacy">pki_token_legacy</label>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="icheck-material-red">
+						  <input type="radio" id="fingerprint_mobile" name="acr_value" />
+						  <label for="fingerprint_mobile">fingerprint_mobile</label>
+					</div>
+				</div>
+			</div>
+			<h2>Response Types</h2>
+			<div class="row contenido">
+				<div class="col-lg-2 col-md-4">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="response_code"/>
+             			<label for="response_code">code</label>
+        			</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="response_id_token"/>
+             			<label for="response_id_token">id_token</label>
+        			</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="icheck-material-red">
+             			<input type="checkbox" id="response_token"/>
+             			<label for="response_token">token</label>
+        			</div>
+				</div>
+				
+			</div>
+			<h2>More Params</h2>
+			<div class="row contenido">
+				<div class="col-lg-12">
+					<label for="max_age">Max Age:</label><input class="form-control" name="max_age" id="max_age">
+				</div>
+				<div class="col-lg-12">
+					<label for="login_hint">Login hint:</label><input class="form-control" name="login_hint" id="login_hint">
+				</div>
+			</div>
+			<div class="row contenido">
+				<div class="col-lg-12 text-center"><button class="btn btn-autenticar" id="btnSubmit">Autenticar</button>
+				</div>
+			</div>
+        </form>
+		
+	</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-7 footer_datos">
+                <div class="widget-body">
+                    <p>
+                        <i class="fas fa-home"></i> Lorem ipsum dolor sit amet, consectetur, adipisicing elit.
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i> Central Telefónica: <a href="#">+000 000 000</a> / <a href="tel:+000 000 0000">+000 000 0000</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i> Correo: <a href="#">Lorem ipsum dolor</a>
+                    </p>
+                    <br>
+                    <p>
+                        <i class="fas fa-copyright"></i> <strong>ID Gob.pe</strong> creado por <a href="#" target="_blank">Gob.pe</a>, todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-5 logo_footer">
+
+                <div class="widget-body text-center">
+                    <img class="img-fluid logo_footer" src="imagenes/gob.pe.svg" width="128" height="auto" alt="">
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur<br>
+                    Lorem ipsum dolor sit amet, consectetur<br>
+                    Lorem ipsum dolor sit amet, consectetur
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

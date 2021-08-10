@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content class="mat-typography">
+    <h3>{{question}}</h3>
+</mat-dialog-content>
+<mat-dialog-actions class="mg-5" fxLayoutAlign="end center">
+    <button type="button" (click)="confirm()" mat-flat-button color="primary">SI</button>
+    <button type="button" (click)="close()" class="border_blue" mat-stroked-button>NO</button>
+</mat-dialog-actions>

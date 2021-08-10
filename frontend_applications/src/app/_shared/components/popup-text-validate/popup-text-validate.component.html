@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<form [formGroup]="formGroup">
+  <mat-dialog-content class="mat-typography">
+    <h3>{{question}}</h3>
+    <h3>
+        {{confirmQuestion}}: <b>{{fieldData}}</b>
+    </h3>
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+      <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+        <mat-label>        
+            {{field}}
+        </mat-label>
+        <input formControlName="fieldData" matInput />
+        <mat-error *ngIf="isInValidField('fieldData')">
+        Campo requerido.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="mg-5" fxLayoutAlign="end center" fxLayoutAlign.xs="space-between center">
+    <button [disabled]="disabled" mat-flat-button color="primary" (click)="confirm()" cdkFocusInitial>
+      <mat-icon>done</mat-icon>
+      CONFIRMAR</button>
+    <button class="border_blue" mat-stroked-button mat-dialog-close>
+      <mat-icon>cancel</mat-icon>
+      CANCELAR</button>
+  </mat-dialog-actions>
+</form>

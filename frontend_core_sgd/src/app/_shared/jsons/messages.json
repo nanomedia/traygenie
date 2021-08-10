@@ -1,0 +1,152 @@
+[
+  {
+    "type": "error",
+    "code": "internal_error",
+    "title": "Error interno",
+    "message": "Ha ocurrido un error, por favor vuelve a intentarlo más tarde."
+  },
+  {
+    "type": "error",
+    "code": "invalid_request",
+    "title": "Solicitud Inválida",
+    "message": "La solicitud es inválida."
+  },
+  {
+    "type": "error",
+    "code": "unauthorized_error",
+    "title": "Solicitud Inválida",
+    "message": "Acceso no autorizado por token invalido."
+  },
+  {
+    "type": "error",
+    "code": "forbidden_error",
+    "title": "Solicitud Inválida",
+    "message": "Acceso no autorizado."
+  },
+  {
+    "type": "error",
+    "code": "code_not_found",
+    "title": "Solicitud Inválida",
+    "message": "El código es inválido."
+  },
+  {
+    "type": "error",
+    "code": "socketid_not_found",
+    "title": "Solicitud Inválida",
+    "message": "La conexión con el websocket ha fallado, por favor, vuelve a intentarlo."
+  },
+  {
+    "type": "error",
+    "code": "invalid_change_legacy",
+    "title": "Solicitud Inválida",
+    "message": "No puedes cambiar al flujo legacy en estos momento."
+  },
+  {
+    "type": "error",
+    "code": "invalid_token",
+    "title": "Solicitud Inválida",
+    "message": "El token es inválido."
+  },
+  {
+    "type": "error",
+    "code": "dnie_device_code_invalid",
+    "title": "Solicitud Inválida",
+    "message": "El código es inválido."
+  },
+  {
+    "type": "info",
+    "code": "dnie_device_title",
+    "title": "",
+    "message": "Inserta el DNIe en el dispositivo lector"
+  },
+  {
+    "type": "info",
+    "code": "dnie_device_description",
+    "title": "",
+    "message": "Para poder utilizar el DNIe, necesitas tener instalado el plugin de"
+  },
+  {
+    "type": "info",
+    "code": "token_device_description",
+    "title": "",
+    "message": "Para poder autenticarte, necesitas tener instalado el plugin de"
+  },
+  {
+    "type": "info",
+    "code": "dnie_device_pin",
+    "title": "",
+    "message": "No retires tu DNIe e ingresa tu PIN cuando se solicite."
+  },
+  {
+    "type": "info",
+    "code": "token_device_pin",
+    "title": "",
+    "message": "Cargando certificados digitales, ingresa tu clave cuando se solicite."
+  },
+  {
+    "type": "info",
+    "code": "dnie_device_revoked",
+    "title": "",
+    "message": "Tu certificado digital ha sido revocado o ha expirado."
+  },
+  {
+    "type": "info",
+    "code": "dnie_device_complete",
+    "title": "",
+    "message": "Te has autenticado exitosamente, espera un momento por favor."
+  },
+  {
+    "type": "info",
+    "code": "dnie_device_cancel",
+    "title": "",
+    "message": "Has cancelado el proceso de autenticación, espera un momento por favor."
+  },
+  {
+    "type": "warn",
+    "code": "verify_invalid_user",
+    "title": "",
+    "message": "Dni no encontrado."
+  },
+  {
+    "type": "warn",
+    "code": "not_enabled_this_flow",
+    "title": "",
+    "message": "No estas habilitado para autenticarte con este flujo."
+  },
+  {
+    "type": "warn",
+    "code": "verify_invalid_password",
+    "title": "",
+    "message": "Constraseña incorrecta."
+  },
+  {
+    "type": "warn",
+    "code": "invalid_recaptcha",
+    "title": "",
+    "message": "Debes validar el recaptcha."
+  },
+  {
+    "type": "info",
+    "code": "token_device_revoked",
+    "title": "",
+    "message": "Tu certificado digital ha sido revocado o ha expirado."
+  },
+  {
+    "type": "info",
+    "code": "token_device_complete",
+    "title": "",
+    "message": "Te has autenticado exitosamente, espera un momento por favor."
+  },
+  {
+    "type": "info",
+    "code": "token_device_cancel",
+    "title": "",
+    "message": "Has cancelado el proceso de autenticación, espera un momento por favor."
+  },
+  {
+    "type": "error",
+    "code": "restriction_acr_device",
+    "title": "Dispositivo no compatible",
+    "message": "No puedes usar este flujo"
+  }
+]

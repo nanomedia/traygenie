@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.5em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.3em!important; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75)!important;
+    width: 133.33333%!important;
+}
+V
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+  padding-right: 0px!important;
+}
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-right: 0px!important;
+}

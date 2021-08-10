@@ -1,0 +1,63 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="pdg-20">
+   <mat-card class="border-green" fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="60%">
+      <form [formGroup]="formGroup" class="mb15" fxLayout="row wrap">
+         <mat-form-field class="h2rem" fxFlex="60%" fxFlex.xs="100%" appearance="outline">
+            <mat-label>Buscar</mat-label>
+            <input [readonly]="isLoading" formControlName="filter" (keyup.enter)="buscar()" matInput>
+            <button type="button" (click)="buscar()" [disabled]="isLoading" mat-button matSuffix mat-icon-button
+               aria-label="Clear">
+               <mat-icon *ngIf="!isLoading">search</mat-icon>
+               <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+            </button>
+         </mat-form-field>
+         <div fxFlex="40%" fxFlex.xs="100%"  fxLayoutAlign="end start"
+            fxLayoutAlign.xs="end  center" fxLayoutAlign.sm="end center ">
+            <button [disabled]="isLoading" type="button" [routerLink]="['/new-app']" mat-raised-button
+               color="primary">NUEVO</button>
+         </div>
+      </form>
+
+      <div *ngIf="isLoading" fxLayoutAlign="center center" class="spinner">
+         <div class="bounce1"></div>
+         <div class="bounce2"></div>
+         <div class="bounce3"></div>
+      </div>
+      <div *ngIf="!isLoading" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+         <ng-container *ngIf="dataSource?.Items?.length > 0 && !isLoading ; else noDataSource">
+            <div fxFlex="33.3%" fxFlex.xl="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33.3%"
+               *ngFor="let row of dataSource.Items">
+               <mat-card class="card_app ">
+                  <mat-card-header class="h90">
+                     <div mat-card-avatar class="example-header-image">
+                        <mat-icon style="font-size: 50px;">phone_android</mat-icon>
+                     </div>
+                     <mat-card-title class="puntos">{{row.name?.substring(0,50)}}</mat-card-title>
+                     <mat-card-subtitle style="overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;">
+                        {{row.description?.substring(0,150)}}
+                     </mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-actions fxLayoutAlign="center center">
+                     <button fxFlex="100%" class="green-button" mat-raised-button color="success"
+                        (click)="goToApp(row)">
+                        {{row.organization_acronym}}
+                     </button>
+                  </mat-card-actions>
+               </mat-card>
+            </div>
+            <mat-paginator fxFlex="100%" *ngIf="dataSource?.recordsTotal > 0 " [length]="dataSource?.recordsTotal"
+               [pageIndex]="pageIndex" [pageSize]="count" [showFirstLastButtons]="true" (page)="pageEvent($event)"
+               [pageSizeOptions]="[8, 16, 32, 64]"></mat-paginator>
+         </ng-container>
+
+         <ng-template #noDataSource>
+            <div *ngIf="!isLoading" fxFlex="100%" class="text-center">
+               No se encontraron resultados
+            </div>
+         </ng-template>
+      </div>
+   </mat-card>
+</div>

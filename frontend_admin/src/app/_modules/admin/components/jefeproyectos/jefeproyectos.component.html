@@ -1,0 +1,116 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+  <mat-card class="border-green" fxFlex="90%" fxFlex.xs="100%">
+    <mat-card-title>
+      <h4>{{orgName}}</h4>
+    </mat-card-title>
+    <!-- <mat-card-subtitle>{{orgName}}</mat-card-subtitle> -->
+    <!-- <mat-card-header>
+    </mat-card-header> -->
+    <mat-card-content>
+      <form [formGroup]="formGroup" fxLayout="row wrap" class="example-form">
+        <mat-form-field fxFlex="48%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="48%" class="example-full-width"
+          appearance="outline">
+          <mat-label> Buscar</mat-label>
+          <input [readOnly]="isLoading" formControlName="filter" autocomplete="off" appBasico="letras2" matInput
+            placeholder="Buscar" (keyup.enter)="buscar()" />
+          <button [disabled]="isLoading" type="button" (click)="buscar()" mat-button matSuffix mat-icon-button
+            aria-label="Clear">
+            <mat-icon *ngIf="!isLoading">search</mat-icon>
+            <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div style="margin-bottom: 15px;" fxFlex="52%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="52%"
+          fxLayoutAlign="end center" fxLayoutAlign.xs="end center" fxLayoutAlign.sm="start  center" class="">
+          <button [disabled]="isLoading" type="button" mat-raised-button color="primary"
+            (click)="newProjectManager()">
+            NUEVO</button>&nbsp;
+
+        </div>
+      </form>
+      <div class="spinner" *ngIf="isLoading">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <div>
+        <ng-container *ngIf="dataSource?.Items?.length > 0 && !isLoading ; else noDataSource">
+          <mat-table [dataSource]="dataSource?.Items">
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="num">
+              <mat-header-cell  *matHeaderCellDef mat-sort-header> N° </mat-header-cell>
+              <mat-cell  *matCellDef="let row; let i = index" data-label="N° ">
+                {{getRowNumber(i)}}
+              </mat-cell>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="dni">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> DNI </mat-header-cell>
+              <mat-cell *matCellDef="let row" data-label="dni"> {{row.doc}}</mat-cell>
+            </ng-container>
+
+            <!-- nombre Column -->
+            <ng-container matColumnDef="nombre">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</mat-header-cell>
+              <mat-cell *matCellDef="let row" data-label="fecha">{{row.names}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="apellidos">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos</mat-header-cell>
+              <mat-cell *matCellDef="let row" data-label="apellidos"> {{row.lastname_1}} {{row.lastname_2}}
+                {{row.lastname_3}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="correo">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico</mat-header-cell>
+              <mat-cell *matCellDef="let row" data-label="correo"> {{row.email}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="celular">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Celular</mat-header-cell>
+              <mat-cell *matCellDef="let row" data-label="celular"> {{row.phone}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de creación</mat-header-cell>
+              <mat-cell *matCellDef="let row" data-label="fecha"> {{row.created_at | date: 'dd/MM/yyyy HH:mm'}}
+              </mat-cell>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="opciones">
+              <mat-header-cell style="margin-left: 25px;padding-left: 23px;" *matHeaderCellDef mat-sort-header> Opciones
+              </mat-header-cell>
+              <mat-cell class="pl-40" *matCellDef="let row" data-label="opciones">
+                <button type="button" class="option" mat-button color="primary" (click)="edit(row)">
+                  <mat-icon>mode_edit</mat-icon>
+                </button>
+                <button class="option" mat-button color="primary" (click)="delete(row)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+          </mat-table>
+
+          <mat-paginator *ngIf="dataSource?.recordsTotal > 0 " [length]="dataSource?.recordsTotal"
+            [pageIndex]="pageIndex" [pageSize]="count" [showFirstLastButtons]="true" (page)="pageEvent($event)"
+            [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </ng-container>
+
+        <ng-template #noDataSource>
+          <div *ngIf="!isLoading" class="text-center">
+            No se encontraron resultados
+          </div>
+        </ng-template>
+
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

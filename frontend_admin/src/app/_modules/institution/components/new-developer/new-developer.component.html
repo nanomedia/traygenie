@@ -1,0 +1,82 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+    <mat-card class="border-green" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="80%" fxFlex.md="80%">
+        <mat-card-content>
+            <form (ngSubmit)="save()" [formGroup]="formGroup" id="form" fxLayout="row" fxLayoutAlign="end" fxLayout="row wrap"
+                fxLayoutAlign="space-between center">
+                <mat-form-field fxFlex="48%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%"
+                    class="example-full-width" appearance="outline">
+                    <mat-label> DNI</mat-label>
+                    <input (keyup.enter)="buscarDNI()" [readOnly]="isLoading" maxlength="8" formControlName="docFilter"
+                        matInput autocomplete="off" placeholder="DNI" appBasico="integer" />
+                    <button [disabled]="isLoading||isInValidField('docFilter')" (click)="buscarDNI()" type="button"
+                        mat-button matSuffix mat-icon-button aria-label="Clear">
+                        <mat-icon *ngIf="!isLoading">search</mat-icon>
+                        <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                    </button>
+                    <mat-error *ngIf="isInValidField('docFilter')">
+                        Ingresar DNI.
+                    </mat-error>
+                    <mat-error *ngIf="isInValidField('token')">
+                        Ingresar y buscar DNI.
+                    </mat-error>
+                </mat-form-field>
+
+                <div style="margin-bottom: 15px;" fxFlex="52%" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.md="50%"
+                    fxLayoutAlign="end center" fxLayoutAlign.xs="start  center" fxLayoutAlign.sm="start  center"
+                    class="">
+
+                </div>
+
+                <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput autocomplete="off" formControlName="name" />
+                </mat-form-field>
+                <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput autocomplete="off" formControlName="lastName" />
+                </mat-form-field>
+                <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input matInput autocomplete="off" formControlName="email" />
+                    <mat-error *ngIf="isInValidField('email')">
+                        Ingresar correo electrónico válido.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                    <mat-label>Celular</mat-label>
+                    <input appBasico="integer" matInput autocomplete="off" formControlName="phone" maxlength="9" />
+                    <mat-error *ngIf="isInValidField('phone')">
+                        Ingresar celular válido.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                    <mat-label>Cargo</mat-label>
+                    <input matInput autocomplete="off" formControlName="position" />
+                    <mat-error *ngIf="isInValidField('position')">
+                        Ingresar el cargo.
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="pdg-10"></div>
+                <div fxFlex="100%" fxLayout="row" fxLayoutAlign="end center">
+                    <div fxLayoutGap="10px">
+                        <button 
+                            [disabled]="formGroup.pristine || formGroup.invalid ||isLoading"  mat-raised-button
+                            color="primary">
+                            <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                            <mat-icon *ngIf="!isLoading">save</mat-icon>
+                            GUARDAR
+                        </button>
+                        <button [disabled]="isLoading" (click)="cancel()" type="button" class="border_blue"
+                            mat-stroked-button>
+                            <mat-icon>cancel</mat-icon>
+                            CANCELAR</button>
+                    </div>
+                </div>
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+</div>

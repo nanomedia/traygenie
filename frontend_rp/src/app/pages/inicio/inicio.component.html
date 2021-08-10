@@ -1,0 +1,154 @@
+<mat-sidenav-container>
+
+  <mat-sidenav [position]="nav_position" [(opened)]="opened">
+    <ng-container *ngIf="currentMessageItem">
+
+      <h1>{{currentMessageItem.title}}</h1>
+      <div [innerHTML]="trustHTML(currentMessageItem.message)">
+      </div>
+    </ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+
+    <mat-toolbar class="bg_none mb2 mb">
+      <img class="img-fluid centrar_logo" src="../assets/imagenes/logo_idperu_rojo.svg" width="180 " height="auto"
+        alt="" />
+    </mat-toolbar>
+
+
+
+    <div class="container">
+
+      <li fxLayout="row" class="mb-4 breadcrumb-item">
+        <a class="a_home" href="#">
+          <mat-icon style="font-size: 2rem;">home</mat-icon>
+        </a>
+        <h3 style="color: #cf000b; font-size: 1.75rem;">ID Gob.pe</h3>
+      </li>
+
+      <div class="pdg-5"></div>
+
+      <mat-card style="padding: 16px;" class="mb">
+        <form [formGroup]="formGroup" class="formulario_rp">
+          <div class="align">
+            <mat-icon (click)="getMessageItem('prompt')" class="cursor f_25 fas fa-question-circle boton">help
+            </mat-icon>
+            <h3 class="fs_t">Prompt</h3>
+          </div>
+          <div fxLayout="row wrap" class="content_padding">
+            <section formArrayName="prompt" class="example-section">
+              <ng-container *ngFor="let item of getArrayForm('prompt');let i=index" [formGroupName]="i">
+                <mat-checkbox formControlName="value" class="colorradio">
+                  {{getControlName(item)}}
+                </mat-checkbox>
+              </ng-container>
+            </section>
+
+          </div>
+          <div class="align">
+            <mat-icon (click)="getMessageItem('scopes') " class="cursor f_25 fas fa-question-circle boton">help
+            </mat-icon>
+
+            <h3 class="fs_t">Scopes</h3>
+          </div>
+          <div fxLayout="row" class="content_padding">
+
+            <section formArrayName="scopes" class="example-section">
+              <ng-container *ngFor="let item of getArrayForm('scopes');let i=index" [formGroupName]="i">
+                <mat-checkbox formControlName="value" class="colorradio">
+                  {{getControlName(item)}}
+                </mat-checkbox>
+              </ng-container>
+            </section>
+          </div>
+
+          <div class="align">
+            <mat-icon (click)="getMessageItem('acr') " class="cursor f_25 fas fa-question-circle boton">help</mat-icon>
+
+            <h3 class="fs_t">Acr</h3>
+          </div>
+
+          <div fxLayout="row wrap" class="content_padding">
+            <mat-radio-group formControlName="acr" aria-label="Select an option">
+              <mat-radio-button *ngFor="let item of acrData" class="colorradio" [value]="item">{{item}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="align">
+            <mat-icon (click)="getMessageItem('response_types') " class="cursor f_25 fas fa-question-circle boton">help
+            </mat-icon>
+
+            <h3 class="fs_t">Response Types</h3>
+          </div>
+
+          <div fxLayout="row wrap" class="content_padding">
+            <section formArrayName="responseTypes" class="example-section">
+
+              <ng-container *ngFor="let item of getArrayForm('responseTypes');let i=index" [formGroupName]="i">
+                <mat-checkbox formControlName="value" class="colorradio">
+                  {{getControlName(item)}}
+                </mat-checkbox>
+              </ng-container>
+            </section>
+          </div>
+
+          <div class="align">
+            <mat-icon (click)="getMessageItem('max_age')" class="cursor f_25 fas fa-question-circle boton">help
+            </mat-icon>
+            <h3 class="fs_t">Max age</h3>
+          </div>
+          <div fxLayout="row wrap">
+            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%">
+              <mat-form-field fxFlex="100%" appearance="outline">
+                <mat-label>Max Age:</mat-label>
+                <input formControlName="maxAge" matInput />
+                <mat-error>Campo requerido.</mat-error>
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <!-- <div class="align">
+            <mat-icon (click)="getMessageItem('login_hint')" class="cursor f_25 fas fa-question-circle boton">help
+            </mat-icon>
+            <h3 class="fs_t">Login hint</h3>
+          </div>
+
+          <div fxLayout="row wrap">
+            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%">
+              <mat-form-field fxFlex="100%" appearance="outline">
+                <mat-label>Login hint:</mat-label>
+                <input formControlName="loginHint" matInput />
+                <mat-error>Campo requerido.</mat-error>
+              </mat-form-field>
+            </div>
+          </div> -->
+
+
+          <div class="pdg-10"></div>
+
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <div class="w-20" fxLayout="row">
+              <button [disabled]="!formGroup.valid" (click)="continue()" mat-flat-button color="primary"
+                fxFlex>CONTINUAR</button>
+            </div>
+          </div>
+
+        </form>
+      </mat-card>
+    </div>
+
+
+    <div class="sidenav" id="capa" style="opacity: 0;display:none;">
+      <h3 class="t_sidenav">Prompt</h3>
+      <p class="p-25">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui quia, reprehenderit natus sint
+        iure esse consequatur et iste obcaecati, cum dicta eum maxime similique non excepturi ab veritatis ipsa.</p>
+    </div>
+
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>

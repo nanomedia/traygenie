@@ -1,0 +1,36 @@
+<mat-toolbar style="background-color: #bf0909; color: white;" class="mat-elevation-z6">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawerToogle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span style="text-align: center;" fxFlex="100%" fxLayoutAlign="center center"><img class="img-fluid" width="130"
+      src="../../assets/imagenes/logo_IDperu.svg" alt="" /></span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+    [matMenuTriggerFor]="menu">
+    <mat-icon>person_outline</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div class="menu-content">
+      <div class="dropdown-title">{{user.first_name}}</div>
+
+      <button class="text-center" mat-menu-item (click)="logout()">
+        <mat-icon class="mr5">logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </div>
+  </mat-menu>
+
+</mat-toolbar>
+<div class="cabecera_datos">
+  <div class="mr-6">
+    <ng-container *ngIf="breadcrumb$ | async as breadcrumbs">
+      <h2>
+        {{breadcrumbs[(breadcrumbs.length-1)].title}}
+      </h2>
+      <p>
+        {{breadcrumbs[(breadcrumbs.length-1)].detail}}
+      </p>
+    </ng-container>
+
+  </div>
+</div>

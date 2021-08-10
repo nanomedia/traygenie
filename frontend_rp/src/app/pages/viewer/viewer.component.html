@@ -1,0 +1,129 @@
+<mat-toolbar class="mb2 bg_none">
+    <img class="img-fluid centrar_logo" src="../assets/imagenes/logo_idperu_rojo.svg" width="180 " height="auto"
+        alt="" />
+</mat-toolbar>
+<div class="container">
+    <li fxLayout="row" class="mb-4 breadcrumb-item">
+        <a class="a_home" href="#">
+            <mat-icon style="font-size: 2rem;">home</mat-icon>
+        </a>
+        <h3 style="color: #cf000b; font-size: 1.75rem;">ID Gob.pe</h3>
+    </li>
+
+    <div class="pdg-5"></div>
+
+    <mat-card  style="padding: 16px;" class="mb">
+
+        <form id="form" class="formulario_rp">
+
+            <ng-container *ngIf="endpointData">
+                <div class="align">
+                    <h3 class="fs_t">Authorization Endpoint Response</h3>
+                    <ng-container *ngIf="endpointData.authEndpoint">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="endpointData.authEndpoint"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </ng-container>
+
+                </div>
+
+                <div fxLayout="row" class="content_padding border">
+                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="endpointData.authEndpointData"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="align">
+
+                    <h3 class="fs_t">Token Endpoint Response</h3>
+                    <ng-container *ngIf="endpointData.tokenEndpoint">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="endpointData.tokenEndpoint"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </ng-container>
+
+                </div>
+
+                <div fxLayout="row" class="content_padding border">
+                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="endpointData.tokenEndpointData"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+
+
+                <div class="align">
+
+                    <h3 class="fs_t">UserInfo Endpoint Response</h3>
+                    <ng-container *ngIf="endpointData.userinfoEndpoint">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="endpointData.userinfoEndpoint"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </ng-container>
+                </div>
+
+                <div fxLayout="row" class="content_padding border">
+                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="endpointData.userinfoEndpointData"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="tokenData">
+                <div class="align">
+                    <h3 class="fs_t">Token Data</h3>
+                </div>
+                <div fxLayout="row" class="content_padding border">
+                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="tokenData"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="errorData">
+                <div class="align">
+                    <h3 class="fs_t">Authentication cancelled</h3>
+                </div>
+                <div fxLayout="row" class="content_padding border">
+                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%">
+                        <br>
+                        <p>
+                            <ngx-json-viewer [json]="errorData"></ngx-json-viewer>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="pdg-10"></div>
+
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <div class="w-20" fxLayout="row">
+                    <button (click)="cancel()" mat-flat-button color="primary" fxFlex>SALIR</button>
+                </div>
+            </div>
+
+        </form>
+    </mat-card>
+</div>

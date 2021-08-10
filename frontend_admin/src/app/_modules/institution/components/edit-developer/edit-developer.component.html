@@ -1,0 +1,82 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+    <mat-card class="border-green" fxFlex="50%" fxFlex.xs="100%">
+       <mat-card-content>
+           <form  (ngSubmit)="save()" [formGroup]="formGroup" autocomplete="off" id="form" fxLayout="row" fxLayoutAlign="end"
+               fxLayout="row wrap" fxLayoutAlign="space-between center">
+               <mat-form-field class="margin" fxFlex="48%" fxFlex.xs="100%" appearance="outline">
+                   <mat-label>Dni</mat-label>
+                   <input matInput formControlName="doc" autocomplete="off" />
+               </mat-form-field>
+   
+               <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                   <mat-label>Nombre</mat-label>
+                   <input matInput formControlName="names" autocomplete="off" />
+               </mat-form-field>
+               <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                   <mat-label>Apellidos</mat-label>
+                   <input matInput formControlName="lastName" autocomplete="off" />
+               </mat-form-field>
+   
+               <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                   <mat-label>Correo electrónico</mat-label>
+                   <input matInput formControlName="email" autocomplete="off" />
+                   <mat-error *ngIf="isInValidField('email')">
+                       Ingresar correo electrónico válido
+                   </mat-error>
+               </mat-form-field>
+   
+               <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                   <mat-label>Celular</mat-label>
+                   <input appBasico="integer" matInput formControlName="phone" maxlength="9" autocomplete="off" />
+                   <mat-error *ngIf="isInValidField('phone')">
+                       Ingresar celular válido.
+                   </mat-error>
+               </mat-form-field>
+   
+               <mat-form-field fxFlex="98%" fxFlex.xs="100%" appearance="outline">
+                   <mat-label>Cargo</mat-label>
+                   <input matInput formControlName="position" autocomplete="off" />
+                   <mat-error *ngIf="isInValidField('position')">
+                       Ingresar el cargo.
+                   </mat-error>
+               </mat-form-field>
+   
+               <div class="pdg-10"></div>
+               <!-- <div fxFlex="100%" fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="space-between center" >
+                   <div fxLayoutGap="10px">
+
+                       <button [disabled]="formGroup.pristine || formGroup.invalid || isLoading"
+                           mat-raised-button color="primary">
+                           <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                           <mat-icon *ngIf="!isLoading">save</mat-icon>
+                           GUARDAR</button>
+                       <button (click)="cancel()" type="button" class="border_blue" mat-stroked-button>
+                        <mat-icon>cancel</mat-icon>
+                        CANCELAR</button>
+                   </div>
+               </div> -->
+
+
+               <div fxFlex="100" fxLayout="row" fxLayoutAlign="end center"  fxLayoutAlign.xs="space-between center"  >
+               
+             
+                <button class="mr10"  [disabled]="formGroup.pristine || formGroup.invalid || isLoading"
+                mat-raised-button color="primary">
+                <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                           <mat-icon *ngIf="!isLoading">save</mat-icon>
+                  GUARDAR
+                </button>
+                <button (click)="cancel()" type="button" class="border_blue" mat-stroked-button>
+                    <mat-icon>cancel</mat-icon>
+                  CANCELAR
+                </button>
+            
+
+         
+
+
+              </div>
+           </form>
+       </mat-card-content>
+    </mat-card>
+</div>

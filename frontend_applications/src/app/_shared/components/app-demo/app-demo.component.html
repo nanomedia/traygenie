@@ -1,0 +1,110 @@
+<div fxLayout="row wrap" fxLayoutGap=" grid" fxLayoutAlign="center start">
+  <div fxFlex="60%" fxFlex.xs="60%" fxFlex.sm="60%" fxFlex.md="60%" fxFlex.xl="60%">
+    <h2 class="confi" mat-dialog-title>Selecciona una aplicación</h2>
+
+  </div>
+  <div fxFlex="40%" fxFlex.xs="40%" fxFlex.sm="40%" fxFlex.md="40%" fxFlex.xl="40%">
+    <div class="cursor" fxFlex="100%" fxFlex.xs="100%" fxLayoutAlign="end start" fxLayoutAlign.xs="start center"
+      fxLayoutAlign.sm="end center ">
+
+
+      <button routerLink="/lista" [disabled]="_isLoading" type="button" mat-dialog-close mat-button matSuffix
+        mat-icon-button aria-label="Clear">
+        <mat-icon>settings</mat-icon>
+      </button>
+
+      <button mat-dialog-close [routerLink]="['/new-app']" [disabled]="_isLoading" mat-raised-button
+        color="primary">NUEVO</button>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<mat-dialog-content class="mat-typography">
+
+  <div fxLayout="row wrap" fxLayoutGap=" grid" fxLayoutAlign="center start">
+
+    <div class="mb10 pt10" fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="100%">
+      <form [formGroup]="formGroup" fxLayout="row wrap">
+
+        <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline" class="example-full-width"
+          appearance="outline">
+          <mat-label>Buscar</mat-label>
+
+          <input [readOnly]="_isLoading" formControlName="filter" appBasico="letras2" matInput placeholder="Buscar"
+            (keyup.enter)="buscar()" />
+          <button [disabled]="_isLoading" type="button" (click)="buscar()" mat-button matSuffix mat-icon-button
+            aria-label="Clear">
+            <mat-icon *ngIf="!_isLoading">search</mat-icon>
+            <mat-icon *ngIf="_isLoading" class="fa-spin">autorenew</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+    <div *ngIf="_isLoading" class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+    <div fxFlex="100%" *ngIf="!_isLoading">
+
+      <ng-container *ngIf="dataSource?.Items?.length > 0 && !_isLoading ; else noDataSource">
+        <mat-table [dataSource]="dataSource?.Items" matSort>
+
+
+          <ng-container matColumnDef="num">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> N° </mat-header-cell>
+            <mat-cell *matCellDef="let row; let i = index" data-label="N°">
+              {{getRowNumber(i)}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- nombre Column -->
+          <ng-container matColumnDef="nombre">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="nombre">{{row.name}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de creación </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="fecha">{{row.created_at | date: 'dd/MM/yyyy HH:mm'}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="opt">
+            <mat-header-cell fxFlexSiz *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button (click)="this.goToApp(row)" type="button" mat-button color="primary">
+                <mat-icon>visibility</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="goToApp(row)" (click)="goToAppMobile(row)"> </mat-row>
+        </mat-table>
+
+        <mat-paginator *ngIf="dataSource?.recordsTotal > 0 " [length]="dataSource?.recordsTotal" [pageIndex]="pageIndex"
+          [pageSize]="count" [showFirstLastButtons]="true" (page)="pageEvent($event)"
+          [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </ng-container>
+
+      <ng-template #noDataSource>
+        <div *ngIf="!_isLoading">
+          <b>
+            No se encontraron resultados
+          </b>
+        </div>
+      </ng-template>
+
+    </div>
+
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button [disabled]="_isLoading" class="border_blue" mat-stroked-button mat-dialog-close>CANCELAR</button>
+
+</mat-dialog-actions>

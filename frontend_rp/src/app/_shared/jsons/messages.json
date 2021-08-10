@@ -1,0 +1,38 @@
+[
+    {
+        "type": "info",
+        "code": "prompt",
+        "title": "Prompt",
+        "message": "<p>Mensaje prompt</p>"
+    },
+    {
+        "type": "info",
+        "code": "scopes",
+        "title": "Scopes",
+        "message": "<p>Mensaje scopes </p><ul><li>Hola mundo</li></ul>"
+    },
+    {
+        "type": "info",
+        "code": "acr",
+        "title": "ACR",
+        "message": "<p>Mensaje acr </p><ul><li>Hola mundo</li></ul>"
+    },
+    {
+        "type": "info",
+        "code": "response_types",
+        "title": "Response types",
+        "message": "<p>Mensaje response types </p><ul><li>Hola mundo</li></ul>"
+    },
+    {
+        "type": "info",
+        "code": "max_age",
+        "title": "Max age",
+        "message": "<p>Mensaje maxage </p><ul><li>Hola mundo</li></ul>"
+    },
+    {
+        "type": "info",
+        "code": "login_hint",
+        "title": "Login hint",
+        "message": "<p>Mensaje loginhint </p><ul><li>Hola mundo</li></ul>"
+    }
+]

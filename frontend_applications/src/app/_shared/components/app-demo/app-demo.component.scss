@@ -1,0 +1,188 @@
+.mat-row:hover{
+  background-color: #f1f5f9;
+  cursor: pointer;
+}
+
+
+.mat-column-num {
+
+  flex: 0 0 4% !important;
+  width: 4% !important;
+}
+
+.mat-column-fecha {
+
+  flex: 0 0 20% !important;
+  width: 20% !important;
+
+}
+
+.mat-column-opt {
+
+  flex: 0 0 5% !important;
+  width: 5% !important;
+
+}
+
+.mobile-label {
+  display: none;
+
+}
+.confi{margin: 0 0 0px;}
+.pt10{
+  padding-top: 10px;
+}
+
+@media(max-width: 600px) {
+  .mat-column-fecha {
+
+    flex: 0 0 100% !important;
+    width: 100% !important;
+
+  }
+  mat-row, mat-header-row, mat-footer-row {
+    display: flex;
+    border-width: 0;
+    border-bottom-width: 3px;
+
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 1.25rem!important;
+  }
+  .mb10{
+    margin-bottom: 10px;}
+  .confi{margin-bottom: 0px;}
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+        font-weight: bold;
+
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 5px;
+    min-height: 0px !important;
+  }
+  .mat-cell:first-of-type{
+    padding-left: 0px !important;
+  }
+  .mat-cell{
+    padding-bottom:6px!important;
+}
+  .mat-column-num {
+
+    flex: 0 0 100% !important;
+    width: 100% !important;
+
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-num {
+
+  flex: 0 0 6%;
+  width: 6%;
+
+}
+/*# sourceMappingURL=firma-digital.component.css.map */
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.5em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.3em!important; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75)!important;
+    width: 133.33333%!important;
+}
+.mat-form-field-wrapper {
+  padding-bottom: 0em!important;
+}
+.mg{
+  margin-right: 20px;
+  margin-top: 5px;
+}
+.hover-search{
+  transition: all 0.5s ease;
+}
+
+.hover-search:hover{
+      background: #e5e5e5;
+    padding: 6px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+@media screen and (max-width: 960px) {
+  .mat-column-opt{
+    flex: 0 0 100% !important;
+    width: 100% !important;
+}
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+  mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+    padding-right: 0px!important;
+}
+  /*  Enable this to hide header
+  .mat-table .mat-header-cell {
+
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  */
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+   
+  }
+  /*
+  .mat-table .mat-row:nth-child(even) {background: #CCC}
+  .mat-table .mat-row:nth-child(odd) {background: #FFF}
+  */
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+
+    height:30px;
+    margin-bottom: 4%;
+    // padding-left: 23px;
+
+  }
+  .mat-table .mat-cell:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+    .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+}

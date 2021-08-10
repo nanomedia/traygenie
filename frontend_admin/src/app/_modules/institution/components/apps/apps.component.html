@@ -1,0 +1,78 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+    <mat-card class="border-green" fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%">
+        <mat-card-content>
+
+            <form [formGroup]="formGroup" fxLayout="row wrap" class="example-form">
+                <mat-form-field fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%"
+                    class="example-full-width" appearance="outline">
+                    <mat-label> Buscar</mat-label>
+                    <input formControlName="filter" matInput placeholder="Buscar" [readOnly]="isLoading"
+                        appBasico="letras2" autocomplete="off" (keyup.enter)="buscar()" />
+                    <button type="button" (click)="buscar()" [disabled]="isLoading" mat-button matSuffix mat-icon-button
+                        aria-label="Clear">
+                        <mat-icon *ngIf="!isLoading">search</mat-icon>
+                        <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+            <div class="spinner" *ngIf="isLoading">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+
+            <ng-container *ngIf="dataSource?.Items?.length > 0 && !isLoading ; else noDataSource">
+                <mat-table [dataSource]="dataSource.Items" matSort>
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="num">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> N° </mat-header-cell>
+                        <mat-cell *matCellDef="let row; let i = index" data-label="N°">
+                            {{getRowNumber(i)}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="nombre">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                        <mat-cell *matCellDef="let row" data-label="nombre"> {{row.name}} </mat-cell>
+                    </ng-container>
+
+                    <!-- nombre Column -->
+                    <ng-container matColumnDef="fecha">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de creación </mat-header-cell>
+                        <mat-cell *matCellDef="let row" data-label="fecha">{{row.created_at | date: 'dd/MM/yyyy HH:mm'}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- Color Column -->
+                    <ng-container matColumnDef="opciones">
+                        <mat-header-cell class="ml7" *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
+                        <mat-cell *matCellDef="let row" [style.opciones]="row.opciones" data-label="opciones">
+                            <button (click)="edit(row)" type="button" class="option one" mat-button color="primary">
+                                <mat-icon>mode_edit</mat-icon>
+                            </button>
+                            <button (click)="delete(row)" type="button" class="option" mat-button color="primary">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+                </mat-table>
+                <mat-paginator *ngIf="dataSource?.recordsTotal > 0 " [length]="dataSource?.recordsTotal"
+                    [pageIndex]="pageIndex" [pageSize]="count" [showFirstLastButtons]="true" (page)="pageEvent($event)"
+                    [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </ng-container>
+
+            <ng-template #noDataSource>
+                <div *ngIf="!isLoading" class="text-center">
+
+                    No se encontraron resultados
+
+                </div>
+            </ng-template>
+
+        </mat-card-content>
+    </mat-card>
+</div>

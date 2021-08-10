@@ -1,0 +1,81 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatRippleModule } from '@angular/material/core';
+import { ToastrModule } from 'ngx-toastr';
+import { PaginatorAdapter } from '../_helpers/_adapters/paginator.adapter';
+import { OverlayModule } from '@angular/cdk/overlay';
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    ToastrModule.forRoot(
+      {
+        progressBar: true,
+        progressAnimation: 'increasing',
+        timeOut: 4000,
+        positionClass: 'toast-top-right',
+        // preventDuplicates: true,
+
+      }), // ToastrModule added
+  ],
+  exports: [
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    FlexLayoutModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatProgressSpinnerModule,
+    NgxFileDropModule,
+    MatRippleModule,
+    OverlayModule,
+    //Extras
+    ToastrModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: MatPaginatorIntl, useValue: new PaginatorAdapter().getPaginatorIntl() }
+  ]
+})
+export class MaterialModule { }

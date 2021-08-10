@@ -1,0 +1,43 @@
+<mat-toolbar style="background-color: #bf0909; color: white;" class="mat-elevation-z6">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawerToogle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="f16 cursor" (click)="app()" style="align-items: center;display: flex;">{{appName}} <mat-icon
+      style="cursor: pointer;">keyboard_arrow_down</mat-icon> </span>
+  <span class="f16 d_none_movil" style="text-align: center;" fxFlex="100%" fxFlexAlign="center">Portal de Aplicaciones</span>
+  <span class="example-spacer"></span>
+
+  <button  mat-icon-button class="example-icon favorite-icon d_none_movil" aria-label="Example icon-button with heart icon"
+    [matMenuTriggerFor]="menu">
+    <mat-icon >person_outline</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div class="menu-content">
+      <div class="dropdown-title">{{user.first_name}}</div>
+      <!-- <div class="text-center mb-3 mt-2"><a href="#" class="btn_menu_user">Administrar mi cuenta</a></div> -->
+
+      <button class="text-center" mat-menu-item (click)="logout()">
+        <mat-icon class="mr5">logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </div>
+  </mat-menu>
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="drawerToogle1()">
+        <mat-icon>settings</mat-icon>
+    </button> -->
+</mat-toolbar>
+
+<div class="cabecera_datos">
+  <div class="mr-6">
+    <ng-container *ngIf="breadcrumb$ | async as breadcrumbs">
+      <h2>
+        {{breadcrumbs[(breadcrumbs.length-1)].title}}
+      </h2>
+      <p>
+        {{breadcrumbs[(breadcrumbs.length-1)].detail}}
+      </p>
+    </ng-container>
+
+  </div>
+</div>

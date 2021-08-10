@@ -1,0 +1,149 @@
+
+.mb10{
+  margin-top: 10px;
+}table {
+  width: 100%;
+}
+
+
+@media screen and (min-width: 1025px) {
+
+  .mat-column-num {
+
+    flex: 0 0 4% !important;
+    width: 4% !important;
+
+  }
+  .mat-column-ruc {
+
+    flex: 0 0 13% !important;
+    width: 13% !important;
+
+  }
+  .mat-column-nombre {
+
+    flex: 0 0 62% !important;
+    width: 62% !important;
+
+  }
+  .mat-column-opciones {
+
+    justify-content: flex-end;
+  }
+
+
+
+}
+@media screen and (max-width: 1024px) and (min-width: 961px) {
+  .mat-column-num {
+
+    flex: 0 0 4% !important;
+    width: 4% !important;
+
+  }
+  .mat-column-ruc {
+
+    flex: 0 0 13% !important;
+    width: 13% !important;
+
+  }
+  .mat-column-nombre {
+
+    flex: 0 0 52% !important;
+    width: 52% !important;
+
+  }
+  .mat-column-opciones {
+
+    justify-content: center;
+  }
+
+}
+@media screen and (max-width: 960px) {
+  .mat-column-ruc {
+
+    padding-left:0px!important;
+
+  }
+
+
+
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 0.8em;
+  }
+
+  /*  Enable this to hide header
+  .mat-table .mat-header-cell {
+
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  */
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block!important;
+
+  }
+  /*
+  .mat-table .mat-row:nth-child(even) {background: #CCC}
+  .mat-table .mat-row:nth-child(odd) {background: #FFF}
+  */
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+
+    height:30px;
+    margin-bottom: 4%;
+
+
+  }
+  .mat-table .mat-cell:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+    .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+}
+
+.color .mat-form-field-flex{
+
+  background: red;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.5em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.3em!important; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75)!important;
+    width: 133.33333%!important;
+}
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+  padding-right: 0px!important;
+}
+mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
+  padding-left: 0px!important;
+}

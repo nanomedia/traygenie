@@ -1,0 +1,39 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+  <mat-card *ngIf="!isLoading" class="border-green" fxFlex="50%" fxFlex.xs="100%">
+
+    <mat-card-content>
+        <form [formGroup]="formGroup" fxLayout="row wrap" class="example-form">
+            <div fxLayout="row wrap" fxFlex="50%" fxFlex.sm="100%" fxFlex.xs="100%">
+  
+                <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                  <mat-label>RUC</mat-label>
+                  <input formControlName="code" matInput autocomplete="off"  />
+              </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                    <mat-label>Nombre</mat-label>
+                    <input formControlName="name" matInput autocomplete="off"  />
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                    <mat-label>Total de apps registradas</mat-label>
+                    <input formControlName="countApp" matInput autocomplete="off" />
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                  <mat-label>Total de desarrolladores</mat-label>
+                  <input formControlName="countDev" matInput autocomplete="off" />
+              </mat-form-field>
+  
+  
+  
+            </div>
+  
+            <div  fxHide.lt-md fxFlex="50%" fxLayoutAlign="center center">
+                <!-- <mat-icon style="font-size: 20rem;">corporate_fare</mat-icon> -->
+                <img style="width: 50%;" src="../../assets/imagenes/login/lector-de-tarjetas.svg" alt="" class="w-50 img-fluid" />
+            </div>
+        </form>
+
+    </mat-card-content>
+
+
+  </mat-card>
+</div>

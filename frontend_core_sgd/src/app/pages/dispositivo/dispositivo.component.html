@@ -1,0 +1,169 @@
+<ng-container *ngIf="!isLegazy();else loader">
+    <div class="home">
+        <div class="bg_rojo">
+            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="displaynonemovil position_a w-100">
+                <img width="180" src="../../assets/imagenes/login/logo_idperu_rojo.svg" alt="" />
+            </div>
+
+            <div fxFlex="66.666667%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%"
+                class=" pad-0 home-section clip-home">
+                <div class="contenido l" fxLayout="row" fxLayoutAlign="center center">
+
+                    <form autocomplete="off" fxLayout="column" fxLayoutAlign="start stretch" fxFlex.xs="90"
+                        fxFlex="400px">
+                        <div class="pdg-10"></div>
+                        <ng-container>
+                            <div class=" displaynonedesktop" fxLayoutAlign="center center">
+                                <img width="180" src="../../assets/imagenes/login/logo_idperu_rojo.svg" alt="" />
+                            </div>
+                        </ng-container>
+                        <div class="pdg-10"></div>
+                        <ng-container [ngSwitch]="currentSession?.acr">
+
+                            <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_DNIE">
+                                <h3 class="mb-3">{{dnieDeviceTitle}}</h3>
+                                <img src="../../assets/imagenes/login/lector-de-tarjetas.svg" alt=""
+                                    class="w-40 img-fluid mb-0">
+                            </ng-container>
+
+                            <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_DNIE_LEGACY">
+                                <!-- <h3 class="mb-3">{{dnieDeviceTitle}}</h3> -->
+                                <img src="../../assets/imagenes/login/lector-de-tarjetas.svg" alt=""
+                                    class="w-40 img-fluid mb-0">
+                            </ng-container>
+
+                            <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_TOKEN">
+                                <h3 class="mb-3"></h3>
+                                <img src="../../assets/imagenes/lector-de-tarjetas.png" alt=""
+                                    class="w-40 img-fluid mb-0">
+                            </ng-container>
+
+                            <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_TOKEN_LEGACY">
+                                <h3 class="mb-3"></h3>
+                                <img src="../../assets/imagenes/lector-de-tarjetas.png" alt=""
+                                    class="w-40 img-fluid mb-0">
+
+                            </ng-container>
+                        </ng-container>
+
+                        <ng-container *ngIf="!isLoading">
+
+                            <div *ngIf="isChromeOpera||isFirefox">
+                                <p style="margin-top: 1rem;margin-bottom: 0;" class="cgris">
+                                    <ng-container
+                                        *ngIf="currentSession?.acr ===_IDGobPeConst.ACR_CERTIFICATE_DNIE || currentSession?.acr ===_IDGobPeConst.ACR_CERTIFICATE_DNIE_LEGACY; else noDNI">
+                                        {{dnieDeviceDescription}}
+                                        <a [href]="pluginUrl" target="_blank">
+                                            <b>
+                                                ClickOnce
+                                            </b>
+                                        </a>
+                                    </ng-container>
+                                    <ng-template #noDNI>
+                                        {{tokenDeviceDescription}}
+                                        <a [href]="pluginUrl" target="_blank">
+                                            <b>
+                                                ClickOnce
+                                            </b>
+                                        </a>
+                                    </ng-template>
+                                </p>
+
+                                <div style="margin-bottom: 1rem;margin-top: 1rem;" class="col-lg-12 col-md-4 mb-1">
+
+                                    <section class="example-section">
+                                        <mat-checkbox [(ngModel)]="isChecked" class="colorradio">He instalado el plugin
+                                        </mat-checkbox>
+                                    </section>
+                                </div>
+                            </div>
+
+                            <div class="mbt-3" *ngIf="isChromeOpera||isFirefox">
+                                <small class="mb-1 cgris">Si tienes problemas con este proceso de autenticación, prueba
+                                    con la
+                                    versión <a (click)="changeToLegazy()" style="cursor:pointer;">
+                                        <b>
+                                            legacy
+                                        </b>
+                                    </a>.
+                                </small>
+                            </div>
+                        </ng-container>
+
+                        <div class="mt-3" *ngIf="isLoading || isPressed" fxLayout="row" fxLayoutAlign="center center">
+                            <div class="loader">
+                                <div class="spinner spinner__1"></div>
+                            </div>
+                        </div>
+
+                        <ng-container *ngIf="!isLoading">
+                            <ng-container *ngIf="!this.isMSIE">
+                                <div *ngIf="!isLoading || !isPressed" fxLayout="row" fxLayoutAlign="center center">
+
+                                    <button (click)="continuar()" [disabled]="!isChecked || isLoading || isPressed"
+                                        type="button" mat-flat-button color="primary" fxFlex>
+                                        <mat-icon *ngIf="isLoading || isPressed" class="fa-spin">autorenew</mat-icon>
+                                        CONTINUAR
+                                    </button>
+                                </div>
+                                <div class="pdg-5"></div>
+                                <div *ngIf="!isLoading  || !isPressed" fxLayout="row" fxLayoutAlign="center center">
+                                    <button [disabled]="isPressed" (click)="cancel()" type="button" mat-stroked-button
+                                        color="primary" fxFlex>CANCELAR</button>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+
+                        <div class="pdg-10"></div>
+                    </form>
+
+                </div>
+
+            </div>
+            <div fxFlex="33.333333%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="40%"
+                class=" bg-color-15  pad-0 none-992 bg-img">
+                <div class="info clearfix">
+
+
+                    <ng-container [ngSwitch]="currentSession?.acr">
+
+                        <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_DNIE">
+                            <!-- <h3 class="mb-3">{{dnieDeviceTitle}}</h3> -->
+                           <img src="../../assets/imagenes/insertadni.png" alt="logo" class="w-100 img-fluid" />
+
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_DNIE_LEGACY">
+                            <!-- <h3 class="mb-3">{{dnieDeviceTitle}}</h3> -->
+                           <img src="../../assets/imagenes/insertadni.png" alt="logo" class="w-100 img-fluid" />
+
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_TOKEN">
+                            <h3 class="mb-3"></h3>
+                            <img src="../../assets/imagenes/token.png" alt="logo" class="w-100 img-fluid" />
+
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="_IDGobPeConst.ACR_CERTIFICATE_TOKEN_LEGACY">
+                            <h3 class="mb-3"></h3>
+                            <img src="../../assets/imagenes/token.png" alt="logo" class="w-100 img-fluid" />
+
+
+                        </ng-container>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+        <a href="#" class="logofixed">
+            <img style="width: 90%" class="imgfixedrojo img-fluid" src="../../assets/imagenes/login/gob.pe.svg"
+                alt="logo" />
+
+        </a>
+    </div>
+</ng-container>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

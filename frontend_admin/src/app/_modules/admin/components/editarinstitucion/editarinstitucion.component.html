@@ -1,0 +1,107 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+
+    <mat-card class="border-green" fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="75%">
+        <mat-card-content>
+            <form (ngSubmit)="save()" [formGroup]="formGroup" fxLayout="row wrap" class="example-form">
+                <div fxLayout="row wrap" fxFlex="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                    <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+                        <mat-label>RUC</mat-label>
+                        <input matInput autocomplete="off" formControlName="code" />
+                    </mat-form-field>
+                    <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput autocomplete="off" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                        <mat-label>Acrónimo</mat-label>
+                        <input maxlength="100" appBasico="letras2" matInput autocomplete="off"
+                            formControlName="acronym" />
+                        <mat-error *ngIf="isInValidField('acronym')">
+                            Ingresar acrónimo.
+                        </mat-error>
+                    </mat-form-field>
+                    <div formArrayName="domains" fxLayout="row wrap" fxFlex="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                        <mat-form-field *ngFor="let item of domainFormArray.controls;let i = index" appearance="outline"
+                            [formGroupName]="i" fxFlex="100%" fxFlex.xs="100%">
+                            <mat-label>Dominio principal {{(i+1)}}</mat-label>
+                            <input (keyup)="addDomain(item)" maxlength="20" appBasico="letras2" matInput
+                                autocomplete="off" formControlName="domain" />
+                            <mat-error *ngIf="isDomainErrorByCtrl(item)">
+                                Ingresar un dominio válido.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row wrap" fxFlex="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                        <h2 class="titulo_tarjetas">Servicios</h2>
+                        <div fxFlex="100%" fxFlex.xs="100%" formArrayName="services">
+                            <div class="spinner" *ngIf="isServiceLoading">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                            <mat-table *ngIf="!isServiceLoading" [multiTemplateDataRows]="true"
+                                [dataSource]="getServiceArrayForm.controls">
+                                <!-- ID Column -->
+                                <ng-container matColumnDef="id">
+                                    <mat-header-cell *matHeaderCellDef> N° </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" data-label="N°" [formGroup]="row">
+                                        {{row.value.num}}
+                                    </mat-cell>
+                                </ng-container>
+
+                                <!-- Progress Column -->
+                                <ng-container matColumnDef="servicio">
+                                    <mat-header-cell *matHeaderCellDef> Servicio </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" data-label="servicio" [formGroup]="row">
+                                        {{row.value.value}} </mat-cell>
+                                </ng-container>
+
+                                <!-- nombre Column -->
+                                <ng-container matColumnDef="habilitado">
+                                    <mat-header-cell *matHeaderCellDef> Habilitar </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" data-label="habilitado" [formGroup]="row">
+                                        <mat-slide-toggle [disabled]="isLoading" formControlName="enabled">
+                                        </mat-slide-toggle>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <!-- Color Column -->
+                                <!-- fxLayoutAlign="end start"  -->
+                                <ng-container matColumnDef="bloqueado">
+                                    <mat-header-cell  *matHeaderCellDef>
+                                        Bloquear </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" data-label="bloqueado" [formGroup]="row">
+                                        <mat-slide-toggle [disabled]="isLoading" formControlName="blocked">
+                                        </mat-slide-toggle>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+                            </mat-table>
+                        </div>
+                    </div>
+
+
+                    <div class="pdg-10"></div>
+                    <div fxFlex="100%" fxLayout="row" fxLayoutAlign="end center">
+                        <div fxLayoutGap="10px">
+                            <button [disabled]="formGroup.pristine || !formGroup.valid || isLoading" mat-raised-button
+                                color="primary" >
+                                <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                                <mat-icon *ngIf="!isLoading">save</mat-icon>
+                                GUARDAR
+                            </button>
+                            <button [disabled]="isLoading" type="button" class="border_blue" (click)="cancelar()"
+                                mat-stroked-button>
+                                <mat-icon>cancel</mat-icon>
+                                CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+</div>

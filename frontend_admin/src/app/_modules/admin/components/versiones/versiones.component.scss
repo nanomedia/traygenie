@@ -1,0 +1,132 @@
+table{
+  width: 100%;
+}
+
+  .mat-column-habilitado {
+
+    justify-content: center;
+  }
+
+  // .card{
+  //   min-width: 600px;
+  // }
+@media screen and (min-width: 1025px) {
+
+  .mat-column-num {
+
+    flex: 0 0 4% !important;
+    width: 4% !important;
+
+  }
+  .mat-column-version {
+
+    flex: 0 0 10% !important;
+    width: 10 !important;
+
+  }
+  .mat-column-codigo {
+
+    flex: 0 0 54% !important;
+    width:54% !important;
+
+  } .mat-column-habilitado {
+
+    flex: 0 0 10% !important;
+    width:10% !important;
+
+  }
+  .mat-column-opciones {
+
+    flex: 0 0 8% !important;
+    width: 8% !important;
+    justify-content: center;
+  }
+  .mat-column-fecha {
+
+    flex: 0 0 11% !important;
+    width: 11% !important;
+  }
+
+}
+
+@media screen and (max-width: 960px) {
+  .mat-column-codigo {
+
+    height: 47px!important;
+
+  }
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  /*  Enable this to hide header
+  .mat-table .mat-header-cell {
+
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  */
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+
+  }
+  /*
+  .mat-table .mat-row:nth-child(even) {background: #CCC}
+  .mat-table .mat-row:nth-child(odd) {background: #FFF}
+  */
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+
+    height:30px;
+    margin-bottom: 4%;
+   
+
+  }
+  .mat-table .mat-cell:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+    .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+}
+
+.color .mat-form-field-flex{
+
+  background: red;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.5em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.3em!important; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75)!important;
+    width: 133.33333%!important;
+}
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+  padding-right: 0px!important;
+}

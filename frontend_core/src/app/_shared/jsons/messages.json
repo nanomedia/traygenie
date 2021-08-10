@@ -1,0 +1,350 @@
+[
+  {
+    "type": "error",
+    "code": "internal_error",
+    "title": "Error Interno",
+    "message": "Ha ocurrido un error, por favor vuelve a intentarlo más tarde."
+  },
+  {
+    "type": "error",
+    "code": "invalid_request",
+    "title": "Solicitud Inválida",
+    "message": "Los parámetros envíados son inválidos."
+  },
+  {
+    "type": "error",
+    "code": "unauthorized_error",
+    "title": "Solicitud Inválida",
+    "message": "Acceso no autorizado por token invalido."
+  },
+  {
+    "type": "error",
+    "code": "forbidden_error",
+    "title": "Solicitud Inválida",
+    "message": "Acceso no autorizado."
+  },
+  {
+    "type": "error",
+    "code": "invalid_redirect_uri",
+    "title": "Parámetros Inválidos",
+    "message": "El parámetro redirect_uri es inválido."
+  },
+  {
+    "type": "error",
+    "code": "invalid_origin_js",
+    "title": "Parámetros Inválidos",
+    "message": "El origin_uri_js es inválido."
+  },
+  {
+    "type": "error",
+    "code": "scope_not_openid",
+    "title": "Parámetros Inválidos",
+    "message": "No se encontró el parámetro scope openid en la petición."
+  },
+  {
+    "type": "error",
+    "code": "origin_js_not_found",
+    "title": "Parámetros Inválidos",
+    "message": "No se encontró el parámetro origin_js en la petición."
+  },
+  {
+    "type": "error",
+    "code": "redirect_uri_not_found",
+    "title": "Parámetros Inválidos",
+    "message": "No se encontró el parámetro redirect_uri en la petición."
+  },
+  {
+    "type": "error",
+    "code": "acr_values_wrong",
+    "title": "Parámetros Inválidos",
+    "message": "El acr enviado no es válido."
+  },
+  {
+    "type": "error",
+    "code": "client_not_found",
+    "title": "Solicitud Inválida",
+    "message": "El cliente no existe."
+  },
+  {
+    "type": "error",
+    "code": "client_wrong_credentials",
+    "title": "Solicitud Inválida",
+    "message": "Las credenciales del cliente son inválidas."
+  },
+  {
+    "type": "error",
+    "code": "redirect_uri_not_match",
+    "title": "Solicitud Inválida",
+    "message": "El redirect_uri enviado no corresponde al cliente."
+  },
+  {
+    "type": "error",
+    "code": "origin_js_not_match",
+    "title": "Solicitud Inválida",
+    "message": "La página origen no se encuentra autorizada por el cliente."
+  },
+  {
+    "type": "error",
+    "code": "response_type_token_alone",
+    "title": "Solicitud Inválida",
+    "message": "El response_type token no se puede usar solo."
+  },
+  {
+    "type": "error",
+    "code": "response_type_wrong",
+    "title": "Solicitud Inválida",
+    "message": "El response_type solicitado es inválido."
+  },
+  {
+    "type": "error",
+    "code": "code_challenge_required",
+    "title": "Solicitud Inválida",
+    "message": "El code_challenge enviado es inválido."
+  },
+  {
+    "type": "error",
+    "code": "code_challenge_unsupported",
+    "title": "Solicitud Inválida",
+    "message": "El code_challenge enviado no esta soportado."
+  },
+  {
+    "type": "error",
+    "code": "nonce_not_found",
+    "title": "Solicitud Inválida",
+    "message": "No se encontró el parámetro nonce en la petición."
+  },
+  {
+    "type": "error",
+    "code": "unable_to_decrypt_request_object",
+    "title": "Solicitud Inválida",
+    "message": "No de puede desencriptar el objeto enviado."
+  },
+  {
+    "type": "error",
+    "code": "unable_to_validate_sign_request_object",
+    "title": "Solicitud Inválida",
+    "message": "No se puede validar la firma del objeto enviado."
+  },
+  {
+    "type": "error",
+    "code": "idtoken_hint_wrong_userid",
+    "title": "Solicitud Inválida",
+    "message": "No se reconoce el user_id en el token enviado."
+  },
+  {
+    "type": "error",
+    "code": "requested_user_diff_logged",
+    "title": "Solicitud Inválida",
+    "message": "El usuario autenticado es diferente al solicitado."
+  },
+  {
+    "type": "error",
+    "code": "prompt_none_max_age",
+    "title": "Solicitud Inválida",
+    "message": "El max_age se ha excedido y el prompt enviado no puede ser none."
+  },
+  {
+    "type": "error",
+    "code": "prompt_none_consent",
+    "title": "Solicitud Inválida",
+    "message": "Es necesaria la pantalla de consentimiento."
+  },
+  {
+    "type": "error",
+    "code": "prompt_none_unauthenticated",
+    "title": "Solicitud Inválida",
+    "message": "Es necesaria la pantalla de consentimiento."
+  },
+  {
+    "type": "error",
+    "code": "prompt_conflicting",
+    "title": "Solicitud Inválida",
+    "message": "Conflictos con el parámetro prompt."
+  },
+  {
+    "type": "error",
+    "code": "user_disabled",
+    "title": "Usuario Deshabilitado",
+    "message": "El usuario se encuentra deshabilitado."
+  },
+  {
+    "type": "error",
+    "code": "user_locked",
+    "title": "Usuario Bloqueado",
+    "message": "El usuario se encuentra bloqueado."
+  },
+  {
+    "type": "error",
+    "code": "user_not_exists",
+    "title": "Usuario no existe",
+    "message": "El usuario no existe."
+  },
+  {
+    "type": "error",
+    "code": "token_idp_not_found",
+    "title": "Solicitud Inválida",
+    "message": "El tokenIdp no se encuentra en la petición."
+  },
+  {
+    "type": "error",
+    "code": "token_idp_acr_not_match",
+    "title": "Solicitud Inválida",
+    "message": "El acr resultante no coincido con el solicitado."
+  },
+  {
+    "type": "error",
+    "code": "token_idp_is_revoked",
+    "title": "Solicitud Inválida",
+    "message": "El tokenIdp se encuentra revocado."
+  },
+  {
+    "type": "error",
+    "code": "auth_code_wrong",
+    "title": "Solicitud Inválida",
+    "message": "El parámetro auth_code es inválido."
+  },
+  {
+    "type": "error",
+    "code": "auth_code_not_exist",
+    "title": "Solicitud Inválida",
+    "message": "No se encontró el parámetro auth_code en la petición."
+  },
+  {
+    "type": "error",
+    "code": "code_verified_wrong",
+    "title": "Solicitud Inválida",
+    "message": "El parámetro code_verified es inválido."
+  },
+  {
+    "type": "error",
+    "code": "code_verified_mismatch",
+    "title": "Solicitud Inválida",
+    "message": "El parámetro code_verified no coincide."
+  },
+  {
+    "type": "error",
+    "code": "id_token_crypto_error",
+    "title": "Solicitud Inválida",
+    "message": "Ha ocurrido un error al generar el id_token."
+  },
+  {
+    "type": "error",
+    "code": "refresh_token_not_exist",
+    "title": "Solicitud Inválida",
+    "message": "No se encontró el parámetro refresh_token en la petición."
+  },
+  {
+    "type": "error",
+    "code": "refresh_token_wrong_client",
+    "title": "Solicitud Inválida",
+    "message": "El refresh_token enviado no corresponde al cliente"
+  },
+  {
+    "type": "error",
+    "code": "refresh_token_scope_not_match",
+    "title": "Solicitud Inválida",
+    "message": "Los scopes enviados para refresh_token no coinciden."
+  },
+  {
+    "type": "error",
+    "code": "client_assertion_unknown",
+    "title": "Solicitud Inválida",
+    "message": "El parámetro client_assertion es inválido."
+  },
+  {
+    "type": "error",
+    "code": "client_assertion_not_available",
+    "title": "Solicitud Inválida",
+    "message": "El client_assertion enviado no esta disponible."
+  },
+  {
+    "type": "error",
+    "code": "jwt_iss_sub_mismatch",
+    "title": "Solicitud Inválida",
+    "message": "El iss y sub del id_token enviado son inválidos."
+  },
+  {
+    "type": "error",
+    "code": "authentication_type_unknown",
+    "title": "Solicitud Inválida",
+    "message": "El parámetro authentication_type es inválido."
+  },
+  {
+    "type": "error",
+    "code": "authentication_type_mismatched",
+    "title": "Solicitud Inválida",
+    "message": "El authentication_type enviado no coincide."
+  },
+  {
+    "type": "error",
+    "code": "secret_client_wrong",
+    "title": "Solicitud Inválida",
+    "message": "El parmámetro secret_client es inválido."
+  },
+  {
+    "type": "error",
+    "code": "grant_type_wrong",
+    "title": "Solicitud Inválida",
+    "message": "El parmámetro grant_type es inválido."
+  },
+  {
+    "type": "error",
+    "code": "access_token_not_found",
+    "title": "Solicitud Inválida",
+    "message": "No se encontró el parmámetro access_token en la petición."
+  },
+  {
+    "type": "error",
+    "code": "access_token_expired",
+    "title": "Solicitud Inválida",
+    "message": "El access_token ha expirado."
+  },
+  {
+    "type": "error",
+    "code": "time_expired",
+    "title": "Solicitud Inválida",
+    "message": "El tiempo para autenticarse ha expirado."
+  },
+  {
+    "type": "error",
+    "code": "token_not_exist",
+    "title": "Solicitud Inválida",
+    "message": "El token ingresado no existe."
+  },
+  {
+    "type": "error",
+    "code": "wrong_token",
+    "title": "Solicitud Inválida",
+    "message": "El código ingresado es incorrecto o ha expirado."
+  },
+  {
+    "type": "error",
+    "code": "error_retry",
+    "title": "Solicitud Inválida",
+    "message": "Ha ocurrido un error, por favor vuelve a intentarlo más tarde."
+  },
+  {
+    "type": "info",
+    "code": "redirecting_to_client_success",
+    "title": "",
+    "message": "Esperando respuesta del servicio…"
+  },
+  {
+    "type": "info",
+    "code": "redirecting_to_client_cancel",
+    "title": "",
+    "message": "Procesando cancelación"
+  },
+  {
+    "type": "info",
+    "code": "logout_message",
+    "title": "",
+    "message": "Cerrando sesion"
+  },
+  {
+    "type": "error",
+    "code": "restriction_acr_device",
+    "title": "Dispositivo no compatible",
+    "message": "No puedes usar este flujo"
+  }
+]

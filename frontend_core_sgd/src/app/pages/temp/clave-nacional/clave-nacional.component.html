@@ -1,0 +1,67 @@
+<div class="home">
+    <div class="bg_rojo">
+        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="displaynonemovil position_a  w-100">
+            <img width="180" src="../../assets/imagenes/login/logo_idperu_rojo.svg" alt="" />
+
+        </div>
+
+        <div fxFlex="66.666667%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%"
+            class=" pad-0 home-section clip-home">
+            <div class="contenido l" fxLayout="row" fxLayoutAlign="center center">
+                <form [formGroup]="formGroup" autocomplete="off" fxLayout="column" fxLayoutAlign="start stretch"
+                    fxFlex.xs="90" fxFlex="340px">
+
+                    <div class="pdg-20"></div>
+                    <ng-container>
+                      <div class="displaynonedesktop"  fxLayoutAlign="center center">
+                         <img  class=" ml-3" width="180" src="../../assets/imagenes/login/logo_idperu_rojo.svg" alt="" />
+                      </div>
+                   </ng-container>
+                   <div class="pdg-10"></div>
+                    <h3 class="mb-3">Ingresa tu contraseña
+                    </h3>
+                    <mat-form-field appearance="outline">
+                        <mat-label>contraseña</mat-label>
+                        <input matInput formControlName="password" type="password">
+
+                        <mat-error *ngIf="isInValidField('password')">
+                            La contraseña es requerida.
+                        </mat-error>
+                        <mat-icon matSuffix>person_outline</mat-icon>
+                    </mat-form-field>
+
+                    <div class="pdg-10"></div>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <button (click)="processNextStep()"
+                            [disabled]="formGroup.pristine || !formGroup.valid || isLoading " type="button"
+                            mat-flat-button color="primary" fxFlex>
+                            <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                            CONTINUAR
+                        </button>
+                    </div>
+                    <div class="pdg-5"></div>
+
+
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                      <button [disabled]="isLoading" (click)="cancel()"  type="button" mat-stroked-button color="primary" fxFlex>
+                        CANCELAR
+                      </button>
+                   </div>
+                </form>
+
+            </div>
+
+        </div>
+        <div fxFlex="33.333333%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="40%"
+            class=" bg-color-15  pad-0 none-992 bg-img">
+            <div class="info clearfix">
+                <img src="../../assets/imagenes/digitar.png" alt="logo" class="w-100 img-fluid" />
+            </div>
+        </div>
+    </div>
+    <a href="#" class="logofixed">
+        <img style="width: 90%" class="imgfixedrojo img-fluid" src="../../assets/imagenes/login/gob.pe.svg"
+            alt="logo" />
+
+    </a>
+</div>

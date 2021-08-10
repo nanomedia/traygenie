@@ -1,0 +1,57 @@
+<div [style.visibility]="showPage? 'visible' :'hidden'">
+   <ng-container *ngIf="enabled ; else noEnabled">
+      <div style="margin:0!important;" fxLayout="row wrap" fxLayoutGap="21px grid" fxLayoutAlign.lg="center start"
+         fxLayoutAlign.xl="center start">
+         <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="30%">
+            <mat-card class="border-green">
+               <h2 class="titulo_tarjetas">Configuración</h2>
+               <form (ngSubmit)="save()" [formGroup]="configForm" fxLayout="row wrap">
+                  <div fxFlex="100%" formArrayName="_js_origin_uris" fxLayout="row wrap">
+                     <h2 style="font-size: 16px;" class="titulo_tarjetas">URLs autorizadas:</h2>
+
+                     <mat-form-field *ngFor="let item of getformArray('_js_origin_uris');let i = index"
+                        [formGroupName]="i" fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+                        <mat-label>URL {{(i+1)}}</mat-label>
+                        <input (keyup)="addUri(item,'_js_origin_uris')" formControlName="uri" matInput />
+                        <mat-error *ngIf="isUrlErrorByCtrl(item)">
+                           Ingresar una url válida.
+                        </mat-error>
+                     </mat-form-field>
+
+                  </div>
+
+
+                  <div class="example-button-row" fxLayoutAlign="end center" fxFlex="100%">
+                     <button
+                        [disabled]="configForm.pristine || configForm.invalid || isLoading"
+                        mat-flat-button color="primary">
+                        <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                        <mat-icon *ngIf="!isLoading">save</mat-icon>
+                        GUARDAR
+                     </button>
+                  </div>
+               </form>
+            </mat-card>
+         </div>
+         <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="30%">
+            <app-credential-panel [currentService]="currentService"></app-credential-panel>
+         </div>
+
+         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="60%">
+            <app-new-credential-panel [serviceId]="currentService?._id"
+               (newCredentialEvent)="newCredentialEvent($event)"></app-new-credential-panel>
+         </div>
+
+         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="60%">
+            <app-disable-service [serviceName]="serviceName" [serviceId]="currentService?._id"
+               (disableEvent)="disableEvent($event)">
+            </app-disable-service>
+         </div>
+      </div>
+
+   </ng-container>
+   <ng-template #noEnabled>
+      <app-enable-service [appId]="this.currentApp?._id" [serviceName]="serviceName"
+         (enableEvent)="enableEvent($event)"></app-enable-service>
+   </ng-template>
+</div>

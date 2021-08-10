@@ -1,0 +1,39 @@
+<div class="home">
+    <div class="bg_rojo">
+        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="position_a w-100">
+        </div>
+        <div fxFlex="66.666667%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="60%"
+            class=" pad-0 home-section clip-home">
+            <div class="home-inner">
+                <div>
+                    <img src="../../assets/imagenes/login/logo_idperu_rojo.svg" alt="" class="mb-3 ml-3" width="90%"  />
+                    <div class="loader">
+                        <h3 class="cgris">
+                            <h2 class="mb-3">{{error?.title}}</h2>
+                            <p>
+                                {{error?.message}}
+                            </p>
+                        </h3>
+                    </div>
+                </div>
+                <div class="pdg-5 mb-3 "></div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button (click)="cancel()" fxFlex.xl="50%" fxFlex.lg="50%" fxFlex.md="50%" fxFlex.sm="100%" fxFlex.xs="100%" type="button"
+                       mat-stroked-button color="primary">SALIR</button>
+                 </div>
+                <div fxLayout="row" class="pdg-10"></div>
+            </div>
+        </div>
+        <div fxFlex="33.333333%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="40%"
+            class=" bg-color-15  pad-0 none-992 bg-img">
+            <div class="info clearfix">
+                <!-- <img src="../../assets/imagenes/expirado.png" alt="logo" class="w-100 img-fluid" /> -->
+            </div>
+        </div>
+    </div>
+    <a href="#" class="logofixed none-992">
+        <img style="width: 90%" class="imgfixedrojo img-fluid" src="../../assets/imagenes/login/gob.pe.svg"
+            alt="logo" />
+        <img class="imgfixedblanco img-fluid" src="../../assets/imagenes/login/gob.pe.rojo.png" alt="logo" />
+    </a>
+</div>

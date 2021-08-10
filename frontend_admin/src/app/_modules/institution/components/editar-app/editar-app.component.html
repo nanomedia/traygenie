@@ -1,0 +1,188 @@
+<div [hidden]="!showPage">
+
+    <form [formGroup]="formGroup">
+        <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+            <div fxLayout="row wrap" fxLayoutAlign="center start" fxLayout="row wrap">
+                <mat-card *ngIf="!isAppLoading" class="border-green" fxFlex="50%" fxFlex.sm="49%" fxFlex.md="49%"
+                    fxFlex.xs="100%" style="margin-right: 2%;margin-bottom: 20px;">
+
+                    <h2 class="titulo_tarjetas">Configuración</h2>
+                    <div fxLayout="row wrap" class="example-form">
+                        <div fxLayout="row wrap" fxFlex="100%" fxFlex.xs="100%">
+                            <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                                <mat-label>ID</mat-label>
+                                <input formControlName="client_id" matInput autocomplete="off" />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                                <mat-label>Nombre</mat-label>
+                                <input formControlName="name" matInput autocomplete="off" />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                                <mat-label>Descripción</mat-label>
+                                <input formControlName="description" matInput autocomplete="off" />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                                <mat-label>Url</mat-label>
+                                <input formControlName="url" matInput autocomplete="off" />
+                            </mat-form-field>
+                            <!-- <mat-form-field  *ngIf="imageToShow" appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+                                <mat-label>Logo</mat-label>
+                                <textarea formControlName="logo_url" matInput autocomplete="off"></textarea>
+                            </mat-form-field>
+                            <div *ngIf="imageToShow"
+                                style="border: 1.5px #e5e5e5 solid;padding: 20px;padding-bottom: 1.34375em;"
+                                fxFlex="100%" fxFlex.xs="100%" appearance="outline" fxLayoutAlign="center center">
+                                <img class="img-fluid" width="300" *ngIf="!isLoading" [src]="imageToShow" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                </mat-card>
+
+                <mat-card *ngIf="!isServiceLoading" class="border-green" fxLayout="row wrap" fxFlex="35%"
+                    fxFlex.sm="49%" fxFlex.md="49%" fxFlex.xs="100%" style="margin-bottom: 20px;">
+                    <h2 class="titulo_tarjetas" fxFlex="100%">Servicios</h2>
+
+                    <div class="margin" fxLayout="row wrap" fxFlex="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                        <ng-container
+                            *ngIf="ServiceList?.length > 0 && !isServiceLoading && !isAppLoading; else noDataSource">
+                            <mat-table fxFlex="100%" *ngIf="!isServiceLoading" [dataSource]="ServiceList">
+                                <!-- ID Column -->
+                                <ng-container matColumnDef="id">
+                                    <mat-header-cell fxFlex="15%" *matHeaderCellDef fxLayoutAlign="start center"> N°
+                                    </mat-header-cell>
+                                    <mat-cell fxFlex="15%" *matCellDef="let row" data-label="id"
+                                        fxLayoutAlign="start center">
+                                        {{row.num}}
+                                    </mat-cell>
+                                </ng-container>
+
+                                <!-- Progress Column -->
+                                <ng-container matColumnDef="servicio">
+                                    <mat-header-cell fxFlex="50" *matHeaderCellDef fxLayoutAlign="start center">
+                                        Servicio
+                                    </mat-header-cell>
+                                    <mat-cell fxFlex="50" *matCellDef="let row" data-label="servicio"
+                                        fxLayoutAlign="start center">
+                                        {{row.value}} </mat-cell>
+                                </ng-container>
+
+                                <!-- nombre Column -->
+                                <ng-container matColumnDef="habilitado">
+                                    <mat-header-cell *matHeaderCellDef fxLayoutAlign="end center"> Habilitar
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" data-label="habilitado" fxLayoutAlign="end center">
+                                        <mat-slide-toggle [disabled]="isLoading" (change)="toggleChange($event,row)"
+                                            [checked]="row.enabled"></mat-slide-toggle>
+                                    </mat-cell>
+                                </ng-container>
+
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+                            </mat-table>
+
+                        </ng-container>
+                        <ng-template #noDataSource>
+                            <div *ngIf="!isAppLoading && !isServiceLoading" class="text-center">
+                                No se encontraron resultados
+                            </div>
+                        </ng-template>
+
+                    </div>
+                </mat-card>
+            </div>
+
+
+
+           
+            <mat-card *ngIf="!isAppLoading" class="border-green" fxLayout="row wrap" fxFlex="64%" fxFlex.lg="72%"
+                fxFlex.md="99%" fxFlex.xs="100%" fxFlex.sm="99%">
+                <h2 fxFlex="100%" class="titulo_tarjetas">Proteger aplicación</h2>
+                <div fxFlex="100%" fxFlex.xs="100%">
+                    <p style="margin: 0;">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat quo, aut possimus autem
+                        error
+                        suscipit sit accusantium temporibus alias sed animi illo, soluta maiores nesciunt vero quae.
+                        Dolorum,
+                        magnam. Lorem ipsum
+                        dolor sit amet consectetur adipisicing elit. Ullam placeat quo, aut possimus autem error
+                        suscipit
+                        sit
+                        accusantium temporibus alias sed animi illo, soluta maiores nesciunt vero quae. Dolorum, magnam.
+                    </p>
+                </div>
+                <div class="pdg-10"></div>
+                <div fxFlex="100%" fxLayout="row" fxLayoutAlign="end center">
+                    <div fxLayoutGap="10px">
+                        <mat-slide-toggle [disabled]="isLoading" (change)="changeEditable($event)"
+                            formControlName="editable"></mat-slide-toggle>
+
+                        <!-- <button (click)="eliminar()" mat-raised-button color="primary">PROTEGER APLICACIÓN</button> -->
+                    </div>
+                </div>
+            </mat-card>
+
+            <div fxFlex="70%" class="pdg-10"></div>
+            <mat-card *ngIf="!isAppLoading" class="border-green" fxLayout="row wrap" fxFlex="64%" fxFlex.lg="72%"
+                fxFlex.md="99%" fxFlex.xs="100%" fxFlex.sm="99%">
+                <h2 fxFlex="100%" class="titulo_tarjetas">Deshabilitar aplicación</h2>
+                <div fxFlex="100%" fxFlex.xs="100%">
+                    <p style="margin: 0;">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat quo, aut possimus autem
+                        error
+                        suscipit sit accusantium temporibus alias sed animi illo, soluta maiores nesciunt vero quae.
+                        Dolorum,
+                        magnam. Lorem ipsum
+                        dolor sit amet consectetur adipisicing elit. Ullam placeat quo, aut possimus autem error
+                        suscipit
+                        sit
+                        accusantium temporibus alias sed animi illo, soluta maiores nesciunt vero quae. Dolorum, magnam.
+                    </p>
+                </div>
+
+                <div class="pdg-10"></div>
+                <div fxFlex="100%" fxLayout="row" fxLayoutAlign="end center">
+                    <div fxLayoutGap="10px">
+                        <!-- <mat-slide-toggle  [disabled]="isLoading" (change)="changeEnabled($event)" formControlName="enabled"></mat-slide-toggle> -->
+                        <button [disabled]="isLoading" type="button" (click)="changeEnabled()" mat-raised-button
+                            color="primary">
+                            <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                            {{enabledButtonText}} APLICACIÓN
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+
+            <div fxFlex="70%" class="pdg-10"></div>
+            <mat-card *ngIf="!isAppLoading" class="border-green" fxLayout="row wrap" fxFlex="64%" fxFlex.lg="72%"
+                fxFlex.md="99%" fxFlex.xs="100%" fxFlex.sm="99%">
+                <h2 fxFlex="100%" class="titulo_tarjetas">Eliminar aplicación</h2>
+                <div fxFlex="100%" fxFlex.xs="100%">
+                    <p style="margin: 0;">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat quo, aut possimus autem
+                        error
+                        suscipit sit accusantium temporibus alias sed animi illo, soluta maiores nesciunt vero quae.
+                        Dolorum,
+                        magnam. Lorem ipsum
+                        dolor sit amet consectetur adipisicing elit. Ullam placeat quo, aut possimus autem error
+                        suscipit
+                        sit
+                        accusantium temporibus alias sed animi illo, soluta maiores nesciunt vero quae. Dolorum, magnam.
+                    </p>
+                </div>
+
+                <div class="pdg-10"></div>
+                <div fxFlex="100%" fxLayout="row" fxLayoutAlign="end center">
+                    <div fxLayoutGap="10px">
+                        <button [disabled]="isLoading" (click)="delete()" mat-raised-button color="primary">
+                            <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                            ELIMINAR APLICACIÓN
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+    </form>
+</div>

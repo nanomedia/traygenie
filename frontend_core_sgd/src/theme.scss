@@ -1,0 +1,116 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// define a real custom palette (using http://mcg.mbitson.com)
+$bv-brand: (
+    50: #ffffff,
+    100: #dde6f3,
+    200: #b4c9e4,
+    300: #7fa3d1,
+    400: #6992c9,
+    500: #076725,
+    600: #4072b4,
+    700: #38649d,
+    800: #305687,
+    900: #284770,
+    A100: #ffffff,
+    A200: #dde6f3,
+    A400: #6992c9,
+    A700: #38649d,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
+
+$bv-orange: (
+    50: #ffffff,
+    100: #fff7f4,
+    200: #fecdbd,
+    300: #fc9977,
+    400: #fc8259,
+    500: #cf000b,
+    600: #fa551d,
+    700: #f44205,
+    800: #d63a04,
+    900: #b83204,
+    A100: #ffffff,
+    A200: #fff7f4,
+    A400: #fc8259,
+    A700: #f44205,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
+
+$md-mcgpalette0: (
+    50 : #e0ebf5,
+    100 : #b3cce6,
+    200 : #80abd6,
+    300 : #4d89c5,
+    400 : #266fb8,
+    500 : #0056ac,
+    600 : #004fa5,
+    700 : #00459b,
+    800 : #003c92,
+    900 : #002b82,
+    A100 : #afc3ff,
+    A200 : #7c9dff,
+    A400 : #4977ff,
+    A700 : #3063ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+// mandatory stuff for theming
+// $bv-palette-primary: mat-palette($bv-brand);
+$bv-palette-primary: mat-palette($md-mcgpalette0);
+$bv-palette-accent:  mat-palette($bv-orange);
+
+// include the custom theme components into a theme object
+$bv-theme: mat-light-theme($bv-palette-primary, $bv-palette-accent);
+
+// include the custom theme object into the angular material theme
+@include angular-material-theme($bv-theme);

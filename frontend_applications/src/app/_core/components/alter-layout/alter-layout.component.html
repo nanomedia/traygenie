@@ -1,0 +1,41 @@
+<div class="example-container contenido">
+    <mat-toolbar style="background-color: #bf0909; color: white;" class="mat-elevation-z6">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        </button>
+        <span style="text-align: center;" fxFlex="100%" fxFlexAlign="center">Portal de Aplicaciones</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+            [matMenuTriggerFor]="menu">
+            <mat-icon>person_outline</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <div class="menu-content">
+                <div class="dropdown-title">{{user.first_name}}</div>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Cerrar sesión</span>
+                </button>
+            </div>
+        </mat-menu>
+    </mat-toolbar>
+    <div class="cabecera_datos">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="60%">
+
+
+                <ng-container *ngIf="breadcrumb$ | async as breadcrumbs">
+                    <h1 style="margin-bottom: 8px;">
+                        {{breadcrumbs[(breadcrumbs.length-1)].title}}
+                    </h1>
+                    <p>
+                        {{breadcrumbs[(breadcrumbs.length-1)].detail}}
+                    </p>
+                </ng-container>
+
+
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

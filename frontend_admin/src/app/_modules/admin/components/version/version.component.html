@@ -1,0 +1,27 @@
+<h2 mat-dialog-title >{{metodo}} versión</h2>
+<form [formGroup]="formGroup">
+<mat-dialog-content class="mat-typography">
+  <div fxLayout="row wrap" fxLayoutAlign="center center"  fxLayout="row wrap">
+    <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+      <mat-label>Versión</mat-label>
+      <input formControlName="version_number" 
+      matInput  
+      placeholder="Escribir la versión" 
+      maxlength="20"
+      autocomplete="off"
+      />
+      <mat-error *ngIf="isInValidField('version_number')">
+        Ingresa la versión.
+    </mat-error>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="mg-5" fxLayoutAlign="end center" fxLayoutAlign.xs="space-between center">
+  <button (click)="save()"  mat-flat-button color="primary" [disabled]="formGroup.pristine || !formGroup.valid">
+    <mat-icon>save</mat-icon>
+    GUARDAR</button>
+  <button  (click)="close()"  class="border_blue" mat-stroked-button mat-dialog-close>
+    <mat-icon>cancel</mat-icon>
+    CANCELAR</button>
+</mat-dialog-actions>
+</form>

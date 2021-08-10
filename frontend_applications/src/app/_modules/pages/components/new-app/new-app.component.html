@@ -1,0 +1,89 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="pdg-20">
+   <div fxFlex.lg="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%" fxFlex.xl="40%">
+      <mat-card class="border-green">
+         <h2 class="titulo_tarjetas">Información de la aplicación</h2>
+         <form [formGroup]="formGroup" fxLayout="row wrap" (ngSubmit)="save()" >
+            <mat-form-field *ngIf="entities?.length > 1" appearance="outline" fxFlex="100%" fxFlex.xs="100%">
+               <mat-label>Entidad</mat-label>
+               <mat-select formControlName="organization_code">
+                  <mat-option [value]="null">Seleccionar</mat-option>
+                  <mat-option *ngFor="let item of entities" [value]="item.code">{{item.name}}</mat-option>
+               </mat-select>
+               <mat-error *ngIf="isInValidField('organization_code')">
+                  Seleccionar entidad.
+               </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+               <mat-label>Nombre</mat-label>
+               <input appBasico="letras2" formControlName="name" matInput maxlength="50" />
+               <mat-error *ngIf="isInValidField('name')">
+                  Ingresar el nombre.
+               </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+               <mat-label>Descripción</mat-label>
+               <input appBasico="letras2" formControlName="description" matInput maxlength="150" />
+               <mat-error *ngIf="isInValidField('description')">
+                  Ingresar la descripción.
+               </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+               <mat-label>URL</mat-label>
+               <input formControlName="url" matInput />
+               <mat-error *ngIf="isInValidField('url')">
+                  Ingresar una URL válida.
+               </mat-error>
+            </mat-form-field>
+
+            <!-- <div fxFlex="100%" fxFlex.xs="100%" appearance="outline">
+               <ngx-file-drop dropZoneLabel="Drop files here" accept="image/*" multiple="false" dropZoneClassName=""
+                  contentClassName="dropZoneDefault" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                  (onFileLeave)="fileLeave($event)">
+                  <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                     <div></div>
+                     <mat-form-field fxFlex="100%" appearance="outline">
+                        <mat-label>Imagen</mat-label>
+                        <input matInput [disabled]="true" [value]="file?.name" />
+                        <button *ngIf="!file" (click)="openFileSelector()" type="button" mat-button matSuffix
+                           mat-icon-button aria-label="Clear">
+                           <mat-icon>file_upload</mat-icon>
+                        </button>
+                        <button *ngIf="file" (click)="deleteImg()" type="button" mat-button matSuffix mat-icon-button
+                           aria-label="Clear">
+                           <mat-icon>delete</mat-icon>
+                        </button>
+                        <mat-error *ngIf="isInValidField('logo')">
+                           Ingresar la imagen.
+                        </mat-error>
+                     </mat-form-field>
+                     <div fxFlex="100%">
+                        <div fxFlex="100%" fxFlex.xs="100%" *ngIf="!url" class="dropZoneRipple">
+                           Arrastrar imagen
+                        </div>
+                        <div *ngIf="url" class="dragAndDropPanel" fxFlex="100%" fxFlex.xs="100%" appearance="outline"
+                           fxLayoutAlign="center center">
+                           <img class="img-fluid" width="300" [src]="url">
+                        </div>
+                     </div>
+                     <div fxFlex="100%" class="imgMessage">
+                        La imagen debe ser de dimensiones 512x512
+                     </div>
+                  </ng-template>
+               </ngx-file-drop>
+            </div> -->
+            <div fxFlex="100%" class="example-button-row" fxLayoutAlign="end center">
+               <button [disabled]="formGroup.pristine || formGroup.invalid || isLoading"
+                  mat-flat-button color="primary">
+                  <mat-icon *ngIf="isLoading" class="fa-spin">autorenew</mat-icon>
+                  <mat-icon *ngIf="!isLoading">save</mat-icon>
+                  GUARDAR
+               </button>
+               <button [disabled]="isLoading" routerLink="/lista" type="button" class="border_blue" mat-stroked-button>
+                  <mat-icon>cancel</mat-icon>
+                  CANCELAR
+               </button>
+            </div>
+         </form>
+      </mat-card>
+   </div>
+</div>

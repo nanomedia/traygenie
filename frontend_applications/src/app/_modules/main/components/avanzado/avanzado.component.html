@@ -1,0 +1,24 @@
+<div *ngIf="!isLoading">
+
+
+   <div style="margin:0!important;" fxLayout="row wrap" fxLayoutGap="21px grid" fxLayoutAlign="center center">
+      <div fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.xl="50%">
+         <mat-card fxLayout="row wrap" class="border-red">
+            <h2 style="padding-bottom: 0px;" class="titulo_tarjetas">Eliminar aplicación</h2>
+            <p>Lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum,
+               lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum,
+               lorem ipsum, lorem ipsum, lorem ipsum.
+               Lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum,
+               lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum,
+               lorem ipsum, lorem ipsum, lorem ipsum.
+            </p>
+
+            <div fxFlex="100%" fxLayout="row wrap" fxLayoutAlign="end center">
+               <button (click)="delete()" mat-raised-button color="primary">ELIMINAR</button>
+            </div>
+
+         </mat-card>
+      </div>
+   </div>
+
+</div>

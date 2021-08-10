@@ -1,0 +1,37 @@
+.example-sidenav{
+    width: 250px;
+}.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.border{
+  width: calc(100% - 10px)!important;
+  border-radius: 0px 100px 100px 0px;
+
+}
+.hoveritem:hover{
+  background: #d3efde;
+    text-decoration: none;
+    color: #62B984;
+}
+
+
+
+.active.hoveritem {
+  text-decoration: none;
+  color: #62B984;
+  font-weight: 600;
+}
+.active.hoveritem:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 25px;
+  width: 4px;
+  background-color: #62B984;
+}
+.mat-list-single-selected-option, .mat-list-single-selected-option:hover, .mat-list-single-selected-option:focus {
+  background: #ffffff00!important;
+}

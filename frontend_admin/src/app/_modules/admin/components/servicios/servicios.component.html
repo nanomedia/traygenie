@@ -1,0 +1,43 @@
+<div *ngIf="showPage" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout="row wrap">
+    <mat-card class="border-green" fxFlex="70%" fxFlex.xs="100%">
+        <mat-card-content>
+            <div fxLayoutAlign="center center">
+                <div fxFlex="100%" fxFlex.xs="100%">
+                    <div class="spinner" *ngIf="isLoading">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+
+                    <table *ngIf="!isLoading" mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="position">
+                            <th fxFlex="12%" fxFlex.xs="50px" mat-header-cell *matHeaderCellDef
+                                fxLayoutAlign="start center">N°</th>
+                            <td fxFlex="12%" fxFlex.xs="50px" mat-cell *matCellDef="let element"
+                                fxLayoutAlign="start center">{{element.order}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="servicio">
+                            <th fxFlex="70%" fxFlex.xs="55%" mat-header-cell *matHeaderCellDef fxLayoutAlign="start center">Servicio
+                            </th>
+                            <td fxFlex="70%" fxFlex.xs="55%" mat-cell *matCellDef="let element" fxLayoutAlign="start center">
+                                {{element.value}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="event">
+                            <th style="margin-left: -15px;" mat-header-cell *matHeaderCellDef fxFlex
+                                fxLayoutAlign="center center">Opciones</th>
+                            <td style="margin-right: 16px;" mat-cell *matCellDef="let element" fxFlex
+                                fxLayoutAlign="center center">
+                                <button type="button" (click)="edit(element)" mat-button color="primary">
+                                    <mat-icon>mode_edit</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
